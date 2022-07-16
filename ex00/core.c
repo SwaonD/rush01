@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_not_in_column(int nb, int **tab, int column, int size)
+int	ft_is_not_in_column(int nb, int **tab, int column, int size)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ int	is_not_in_column(int nb, int **tab, int column, int size)
 	return (1);
 }
 
-int	is_not_in_row(int nb, int **tab, int row, int size)
+int	ft_is_not_in_row(int nb, int **tab, int row, int size)
 {
 	int	i;
 
@@ -38,7 +38,7 @@ int	is_not_in_row(int nb, int **tab, int row, int size)
 	return (1);
 }
 
-int	is_valid(int tab, int position, int size)
+int	ft_is_valid(int **tab, int position, int size)
 {
 	int	cell;
 

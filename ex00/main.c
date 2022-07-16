@@ -75,6 +75,7 @@ int	main(int argc, char **argv)
 	}
 	// size = 4;
 	tab = ft_init_tab(tab, size);
+	ft_is_valid(0);
 	ft_print_tab(tab, size);
 	ft_free_tab(tab, size);
 
