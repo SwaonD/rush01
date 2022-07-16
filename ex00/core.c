@@ -40,32 +40,56 @@ int	ft_is_not_in_row(int nb, int **tab, int row, int size)
 	return (1);
 }
 
-int	ft_is_valid(int **tab, int position, int size)
+int	ft_is_index_friendly(int value, int **tab, int **index, int x, int y, int size)
 {
-	int	cell;
-	printf("position : %d\n", position);
+	int	i;
+
+	if (y == 0 || y == size - 1)
+	{
+		if (y == 0)
+			i = 0;
+		if (y == size)
+			i = 1;
+		if ((index[i][x] == 4 && value != 1) || (index[i][x] == 1 && value != 4))
+			return (0);
+	}
+	if (x == 0 || x == size - 1)
+	{
+		if (x == 0)
+			i == 2;
+		if (x == size)
+			i == 3;
+		if ((index[i][y] == 4 && value != 1) || (index[i][y] == 1 && value != 4))
+			return (0);
+	}
+	return (1);
+}
+
+int	ft_is_valid(int **tab, int **index, int position, int size)
+{
+	int	value;
+
 	if (position == size*size)
 		return (1);
 
-	int i = position / size, j = position % size;
+	int y = position / size, x = position % size;
 
-	if (tab[i][j] != 0)
+	if (tab[y][x] != 0)
 		return (ft_is_valid(tab, position + 1, size));
-	
-	cell = 1;
-	while (cell <= size)
+
+	value = 1;
+	while (value <= size)
 	{
-		printf("bob : %d\n", cell);
-		if (ft_is_not_in_row(cell, tab, i, size) && ft_is_not_in_column(cell, tab, j, size))
+		if (ft_is_not_in_row(value, tab, y, size) && ft_is_not_in_column(value, tab, x, size)
+			&& ft_is_index_friendly(value, tab, index, x, y, size))
 		{
-			tab[i][j] = cell;
-			printf("tab_cell = %d", tab[i][j]);
+			tab[y][x] = value;
 			if (ft_is_valid(tab, position+1, size))
 				return (1);
 		}
-		cell++;
+		value++;
 	}
-	tab[i][j] = 0;
+	tab[y][x] = 0;
 
 	return (0);
 }
