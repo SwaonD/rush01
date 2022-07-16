@@ -26,28 +26,27 @@ int	main(int argc, char **argv)
 	int	size;
 	if (argc != 2)
 	{
-		write(1, "Error\n", 6);
+		write(1, "Errouuur\n", 6);
 		return (0);
 	}
-	i = -1;
+	i = 0;
 	while (argv[1][i])
 		i++;
 	if (++i % 8 != 0 || i < 16 || i > 72)
 	{
-		write(1, "Error\n", 6);
+		write(1, "Errooor\n", 6);
 		return (0);
 	}
 	size = i / 8;
-	size = 4;
 	tab = ft_init_tab(tab, size, size);
 	indexus = ft_init_index(argv[1], size);
 	if (indexus == NULL)
 		return(0);
-	printf("%d\n", ft_is_valid(tab, 0, size, indexus));
+	printf("%d\n", ft_is_valid(tab, indexus, 0, size));
 	ft_print_tab(tab, size);
 	ft_free_tab(tab, size);
 
 
-	write(1, "Error\n", 6);
+	// write(1, "Error\n", 6);
 	return (0);
 }

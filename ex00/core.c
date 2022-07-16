@@ -40,28 +40,40 @@ int	ft_is_not_in_row(int nb, int **tab, int row, int size)
 	return (1);
 }
 
-int	ft_is_index_friendly(int value, int **tab, int **index, int x, int y, int size)
+int	ft_is_index_friendly(int value, int **tab, int **index, int position, int size)
 {
-	int	i;
+	int	x;
+	int	y;
 
-	if (y == 0 || y == size - 1)
+	x = position % size;
+	y = position / size;
+	printf("value = %d\n", value);
+
+	if (y == 0)
 	{
-		if (y == 0)
-			i = 0;
-		if (y == size)
-			i = 1;
-		if ((index[i][x] == 4 && value != 1) || (index[i][x] == 1 && value != 4))
+		printf("index = %d\n", index[0][x]);
+		if ((index[0][x] == size && value != 1) || (index[0][x] == 1 && value != size))
 			return (0);
 	}
-	if (x == 0 || x == size - 1)
+	if (y == size - 1)
 	{
-		if (x == 0)
-			i == 2;
-		if (x == size)
-			i == 3;
-		if ((index[i][y] == 4 && value != 1) || (index[i][y] == 1 && value != 4))
+		printf("index = %d\n", index[1][x]);
+		if ((index[1][x] == size && value != 1) || (index[1][x] == 1 && value != size))
 			return (0);
 	}
+	if (x == 0)
+	{
+		printf("index = %d\n", index[2][y]);
+		if ((index[2][y] == size && value != 1) || (index[2][y] == 1 && value != size))
+			return (0);
+	}
+	if (x == size - 1)
+	{
+		printf("index = %d\n", index[3][y]);
+		if ((index[3][y] == size && value != 1) || (index[3][y] == 1 && value != size))
+			return (0);
+	}
+	printf("TRUE\n\n");
 	return (1);
 }
 
@@ -75,16 +87,16 @@ int	ft_is_valid(int **tab, int **index, int position, int size)
 	int y = position / size, x = position % size;
 
 	if (tab[y][x] != 0)
-		return (ft_is_valid(tab, position + 1, size));
+		return (ft_is_valid(tab, index, position + 1, size));
 
 	value = 1;
 	while (value <= size)
 	{
 		if (ft_is_not_in_row(value, tab, y, size) && ft_is_not_in_column(value, tab, x, size)
-			&& ft_is_index_friendly(value, tab, index, x, y, size))
+			&& ft_is_index_friendly(value, tab, index, position, size))
 		{
 			tab[y][x] = value;
-			if (ft_is_valid(tab, position+1, size))
+			if (ft_is_valid(tab, index, position+1, size))
 				return (1);
 		}
 		value++;

@@ -45,7 +45,7 @@ int	**ft_init_index(char *arg1, int size)
 	int	**indexus;
 
 	i = -1;
-	indexus = ft_init_tab(indexus, 4, size)
+	indexus = ft_init_tab(indexus, 4, size);
 	while (++i < size * 8)
 	{
 		if (i % 2 == 0)
