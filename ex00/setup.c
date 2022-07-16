@@ -13,6 +13,11 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
 int	**ft_init_tab(int **tab, int size)
 {
 	int	i;
@@ -26,7 +31,7 @@ int	**ft_init_tab(int **tab, int size)
 		y = 0;
 		while (y < size)
 		{
-			tab[i][y] = '0';
+			tab[i][y] = 0;
 			y++;
 		}
 		i++;
@@ -45,11 +50,11 @@ void	ft_print_tab(int **tab, int size)
 		y = 0;
 		while (y < size)
 		{
-			write(1, &tab[i][y], 1);
-			write(1, " ", 1);
+			ft_putchar(tab[i][y] + '0');
+			ft_putchar(' ');
 			y++;
 		}
-		write(1, "\n", 1);
+		ft_putchar('\n');
 		i++;
 	}
 }

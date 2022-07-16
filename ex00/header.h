@@ -15,4 +15,5 @@ void    ft_print_tab(int **tab, int size);
 void    ft_free_tab(int **tab, int size);
 int ft_is_not_in_column(int nb, int **tab, int column, int size);
 int	ft_is_not_in_row(int nb, int **tab, int row, int size);
-int	ft_is_valid(int tab, int position, int size);
+int	ft_is_valid(int **tab, int position, int size);
+int	*ft_init_parambuff(int *tab, int size);
