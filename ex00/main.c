@@ -6,7 +6,7 @@
 /*   By: addebadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 10:23:33 by addebadi          #+#    #+#             */
-/*   Updated: 2022/07/16 10:29:48 by addebadi         ###   ########.fr       */
+/*   Updated: 2022/07/16 14:32:56 by addebadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	int	*col_up;
 	int	*col_do;
 	int	*row_le;
-	int	*rox_ri;
+	int	*row_ri;
 	if (argc != 2)
 	{
 		write(1, "Error\n", 6);
@@ -75,7 +75,6 @@ int	main(int argc, char **argv)
 	}
 	// size = 4;
 	tab = ft_init_tab(tab, size);
-	ft_edit_test_tab(tab, size);
 	ft_print_tab(tab, size);
 	ft_free_tab(tab, size);
 
