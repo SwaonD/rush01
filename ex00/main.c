@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	int	size;
 	if (argc != 2)
 	{
-		write(1, "Errouuur\n", 6);
+		write(1, "Error\n", 6);
 		return (0);
 	}
 	i = 0;
@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 		i++;
 	if (++i % 8 != 0 || i < 16 || i > 72)
 	{
-		write(1, "Errooor\n", 6);
+		write(1, "Error\n", 6);
 		return (0);
 	}
 	size = i / 8;
