@@ -6,7 +6,7 @@
 /*   By: addebadi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/16 11:51:03 by addebadi          #+#    #+#             */
-/*   Updated: 2022/07/16 12:13:51 by addebadi         ###   ########.fr       */
+/*   Updated: 2022/07/16 14:52:09 by addebadi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,17 @@ int	ft_is_valid(int **tab, int position, int size)
 	int i = position / size, j = position % size;
 
 	if (tab[i][j] != 0)
-		return is_valid(tab, position + 1, size);
+		return (ft_is_valid(tab, position + 1, size));
 
 	cell = 0;
 	while (cell <= size)
 	{
-		if (is_not_in_row(cell, tab, i, size) && is_not_in_column(cell, tab, j, size))
+		if (ft_is_not_in_row(cell, tab, i, size) && ft_is_not_in_column(cell, tab, j, size))
 		{
 			tab[i][j] = cell;
 
-			if (is_valid(tab, position+1, size))
-				return true;
+			if (ft_is_valid(tab, position+1, size))
+				return (1);
 		}
 		cell++;
 	}
