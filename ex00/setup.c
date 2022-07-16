@@ -16,27 +16,6 @@
 int	**ft_init_tab(int **tab, int size)
 {
 	int	i;
-<<<<<<< HEAD
-
-	i = 0;
-	tab = malloc(size * 8);
-	while (i < size)
-	{
-		tab[i] = malloc(size * 4);
-		i++;
-	}
-	return (tab);
-}
-
-void	ft_edit_test_tab(int **tab, int size)
-{
-	int	i;
-	int	y;
-
-	i = 0;
-	while (i < size)
-	{
-=======
 	int	y;
 
 	i = 0;
@@ -44,7 +23,6 @@ void	ft_edit_test_tab(int **tab, int size)
 	while (i < size)
 	{
 		tab[i] = malloc(size * sizeof(int));
->>>>>>> setup my git
 		y = 0;
 		while (y < size)
 		{
@@ -53,10 +31,7 @@ void	ft_edit_test_tab(int **tab, int size)
 		}
 		i++;
 	}
-<<<<<<< HEAD
-=======
 	return (tab);
->>>>>>> setup my git
 }
 
 void	ft_print_tab(int **tab, int size)
